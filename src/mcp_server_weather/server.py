@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("Weather")
+mcp = FastMCP("Weather", host="0.0.0.0", port=8000)
 
 # ---------------------------------------------------------------------------
 # Helpers – deterministic "random" weather based on city name + date
@@ -99,7 +99,7 @@ def compare_weather(cities: list[str]) -> list[dict]:
 
 def main():
     """Entry-point used by the console-script."""
-    mcp.run(transport="streamable-http", host="0.0.0.0", port=8000)
+    mcp.run(transport="streamable-http")
 
 
 if __name__ == "__main__":
